@@ -3,13 +3,18 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: ['airbnb-base', 'airbnb-typescript/base'],
+  extends: [
+    'standard-with-typescript',
+  'airbnb', 
+  'airbnb-typescript'  
+],
   overrides: [
   ],
   parserOptions: {
-    project: './tsconfig.json'
+    ecmaVersion: 'latest',
+    sourceType: 'module'
   },
   rules: {
-    'linebreak-style': 0,
+    "linebreak-style": 0,
   }
 }

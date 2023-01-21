@@ -21,5 +21,9 @@
     "eslint-plugin-promise": "^6.1.1",
     "typescript": "^4.9.4",
     "vite": "^3.2.3"
+  },
+  "dependencies": {
+    "firebase": "^9.15.0",
+    "uuidv4": "^6.2.13"
   }
 }

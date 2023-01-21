@@ -1,7 +1,9 @@
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import Component from '../lib/Component';
-import Elements from '../lib/Elements';
+// import Elements from '../lib/Elements';
+import auth from '../lib/Auth';
 
-class LoginComponent extends Component {
+export default class LoginComponent extends Component {
   constructor() {
     super({
       name: 'Login',
@@ -12,13 +14,49 @@ class LoginComponent extends Component {
   // eslint-disable-next-line class-methods-use-this
   render() {
     const loginContainer = document.createElement('div');
-    loginContainer.appendChild(
-      Elements.createHeader({
-        textContent: 'Welcome to this page',
-      }),
-    );
+    loginContainer.innerHTML = `
+    <h1>Login</h1>
+    <form method="POST" id="loginform">
+    <label>E-mail</label></br>
+    <input type="email" name="email" id="email"></br>
+    <label>Wachtwoord</label></br>
+    <input type="password" name="password" id="password"></br>
+    <input type="button" value="Login" id=login>
+    </form>`;
+
+    // appendChild(
+    //   Elements.createHeader({
+    //     textContent: 'Welcome to this page',
+    //   }),
+    // );
+    const login = new LoginComponent();
+    const appContainer = document.querySelector<HTMLDivElement>('#app')!;
+
+    appContainer.appendChild(login.render());
+
+    const initApp = () => {
+      const $loginBtn = document.querySelector('#login');
+
+      $loginBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        const email: HTMLInputElement = document.querySelector('#email')!;
+        const password: HTMLInputElement = document.querySelector('#password')!;
+
+        const emailvalue = email.value;
+        const passwordvalue = password.value;
+
+        signInWithEmailAndPassword(auth, emailvalue, passwordvalue).then(() => {
+          console.log('test');
+        })
+          .catch((err) => {
+            console.log(err.message);
+          });
+
+        console.log(`${emailvalue} ${passwordvalue}`);
+      });
+    };
+
+    initApp();
     return loginContainer;
   }
 }
-
-export default LoginComponent;
