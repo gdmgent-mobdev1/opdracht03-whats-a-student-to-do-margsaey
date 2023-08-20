@@ -6,7 +6,7 @@ import {
   addDoc,
 } from 'firebase/firestore';
 import { Card, TodoList } from './Components';
-import { State, root } from './Lib';
+import { State, root } from './lib';
 
 // import firestore
 import { fireStoreDb } from './lib/firebase-init';

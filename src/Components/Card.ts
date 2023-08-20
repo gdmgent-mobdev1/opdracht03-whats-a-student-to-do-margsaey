@@ -1,10 +1,10 @@
 /* eslint-disable import/no-cycle */
 import { v4 as uuidv4 } from 'uuid';
-import { root, State } from '../Lib';
-import { dragstartHandler } from '../Lib/dragAndDrop';
+import { root, State } from '../lib';
+import { dragstartHandler } from '../lib/dragAndDrop';
 import { deleteCardFromFirebase } from '../lib/firebase-init';
 import Comment from './Comment';
-import editableText from './editableText';
+import editableText from './EditableText';
 import TodoList from './TodoList';
 
 export default class Card {

@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import { dragoverHandler, dropHandler } from '../Lib/dragAndDrop';
+import { dragoverHandler, dropHandler } from '../lib/dragAndDrop';
 import { addTodoFirebase, deleteTodoListFirebase } from '../lib/firebase-init';
 // eslint-disable-next-line import/no-cycle
 import Card from './Card';

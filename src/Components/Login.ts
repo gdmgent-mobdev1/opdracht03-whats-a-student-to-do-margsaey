@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword, auth } from 'firebase/auth';
+import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
 import Component from '../lib/Component';
 // import Elements from '../lib/Elements';
 
@@ -43,7 +43,7 @@ export default class LoginComponent extends Component {
 
         const emailvalue = email.value;
         const passwordvalue = password.value;
-
+        const auth = getAuth();
         signInWithEmailAndPassword(auth, emailvalue, passwordvalue).then(() => {
           console.log('test');
         })

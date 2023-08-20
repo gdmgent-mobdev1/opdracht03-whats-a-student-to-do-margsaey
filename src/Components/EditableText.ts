@@ -1,4 +1,4 @@
-import { Property } from '../Lib';
+import { Property } from '../lib';
 import { updateTodoFirebase } from '../lib/firebase-init';
 // eslint-disable-next-line import/no-cycle
 import Card from './Card';
